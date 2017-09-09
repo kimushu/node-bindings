@@ -78,6 +78,9 @@ function bindings (opts) {
     }))
     tries.push(n)
     try {
+      if (fs.existsSync(n) && process.arch !== "win32") {
+        fs.chmodSync(n, 0o755);
+      }
       b = opts.path ? require.resolve(n) : require(n)
       if (!opts.path) {
         b.path = n
