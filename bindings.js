@@ -19,6 +19,8 @@ var fs = require('fs')
       , try: [
           // node-gyp's linked version in the "build" dir
           [ 'module_root', 'build', 'bindings' ]
+          // Production "Release" buildtype binary (meh...)
+        , [ 'module_root', 'compiled', 'version', 'platform', 'arch', 'bindings' ]
           // node-waf and gyp_addon (a.k.a node-gyp)
         , [ 'module_root', 'build', 'Debug', 'bindings' ]
         , [ 'module_root', 'build', 'Release', 'bindings' ]
@@ -30,8 +32,6 @@ var fs = require('fs')
         , [ 'module_root', 'Release', 'bindings' ]
           // Legacy from node-waf, node <= 0.4.x
         , [ 'module_root', 'build', 'default', 'bindings' ]
-          // Production "Release" buildtype binary (meh...)
-        , [ 'module_root', 'compiled', 'version', 'platform', 'arch', 'bindings' ]
         ]
     }
 
